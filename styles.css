@@ -1,0 +1,46 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+.keys {
+	display: flex;
+	border: solid 4px black;
+	width: 350px;
+	height: 300px;
+	margin: auto;
+	align-items: flex-end;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.digits,
+.operators {
+	display: flex;
+	flex-flow: column wrap;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.digits {
+	flex-basis: 80%;
+}
+
+.operators {
+	flex-basis: 20%;
+}
+
+.key {
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	border: solid 2px black;
+	border-right: 0;
+	border-bottom: 0;
+}
+
+.row {
+	display: flex;
+}
