@@ -59,11 +59,14 @@ function clear() {
 function digitClicked(e) {
 	if (e.target.innerText == "C") {
 		clear();
+	} else if (e.target.innerText == "⌫") {
+		number1 /= 10;
+		display.innerText = display.innerText.slice(0, -1);
 	} else if (resultDisplayed == 1) {
 		clear();
 		display.innerText = e.target.innerText;
 	} else if (
-		e.target.innerText != "." ||
+		(e.target.innerText != "." && e.target.innerText != "⌫") ||
 		(e.target.innerText == "." && !display.innerText.includes("."))
 	) {
 		display.innerText += e.target.innerText;
