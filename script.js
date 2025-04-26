@@ -3,8 +3,11 @@ const operators = document.querySelector(".operators");
 const display = document.querySelector(".display");
 let number1, number2, operator;
 let resultDisplayed = 0;
-digits.addEventListener("click", digitClicked);
-operators.addEventListener("click", operatorClicked);
+const digitKeys = digits.querySelectorAll(".key");
+digitKeys.forEach((key) => key.addEventListener("click", digitClicked));
+operators
+	.querySelectorAll(".key")
+	.forEach((key) => key.addEventListener("click", operatorClicked));
 document.addEventListener("keyup", (e) => {
 	if (e.key == "Backspace") document.querySelector(".key.backspace").click();
 	else if (!isNaN(e.key)) document.querySelector(`.key.k${e.key}`).click();
@@ -27,7 +30,6 @@ document.addEventListener("keyup", (e) => {
 				break;
 		}
 	}
-	console.log(e.key);
 });
 
 function add(a, b) {
@@ -81,6 +83,8 @@ function clear() {
 }
 
 function digitClicked(e) {
+	e.stopPropagation();
+	console.log(e.target.innerText);
 	if (e.target.innerText == "C") {
 		clear();
 	} else if (e.target.innerText == "⌫") {
