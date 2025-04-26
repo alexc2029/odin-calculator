@@ -62,7 +62,10 @@ function digitClicked(e) {
 	} else if (resultDisplayed == 1) {
 		clear();
 		display.innerText = e.target.innerText;
-	} else {
+	} else if (
+		e.target.innerText != "." ||
+		(e.target.innerText == "." && !display.innerText.includes("."))
+	) {
 		display.innerText += e.target.innerText;
 	}
 	resultDisplayed = 0;
