@@ -5,6 +5,30 @@ let number1, number2, operator;
 let resultDisplayed = 0;
 digits.addEventListener("click", digitClicked);
 operators.addEventListener("click", operatorClicked);
+document.addEventListener("keyup", (e) => {
+	if (e.key == "Backspace") document.querySelector(".key.backspace").click();
+	else if (!isNaN(e.key)) document.querySelector(`.key.k${e.key}`).click();
+	else {
+		switch (e.key) {
+			case "+":
+				document.querySelector(".key.addition").click();
+				break;
+			case "-":
+				document.querySelector(".key.subtraction").click();
+				break;
+			case "*":
+				document.querySelector(".key.multiplication").click();
+				break;
+			case ":":
+				document.querySelector(".key.division").click();
+				break;
+			case "=":
+				document.querySelector(".key.equals").click();
+				break;
+		}
+	}
+	console.log(e.key);
+});
 
 function add(a, b) {
 	return a + b;
