@@ -41,6 +41,8 @@ function operate(op, a, b) {
 			break;
 	}
 	display.innerText = result;
+	number2 = result;
+	number1 = 0;
 }
 
 function digitClicked(e) {
@@ -52,7 +54,9 @@ function operatorClicked(e) {
 	display.innerText = "";
 	if (e.target.innerText != "=") {
 		operator = e.target.innerText;
-		number2 = number1;
-		number1 = 0;
+		if (!number2) {
+			number2 = number1;
+			number1 = 0;
+		}
 	} else operate(operator, number2, number1);
 }
